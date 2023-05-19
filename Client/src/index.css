@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.chat-container {
+    /* max-height: 500px; */
+    overflow: auto;
+}
+
+/* width */
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+.chat-container::-webkit-scrollbar-track {
+    background: #e6e6e6;
+    border-radius: 1rem;
+}
+
+/* Handle */
+.chat-container::-webkit-scrollbar-thumb {
+    background: #d12afb;
+    border-radius: 1rem;
+}
+
+/* Handle on hover */
+.chat-container::-webkit-scrollbar-thumb:hover {
+    background: #b31bffb7;
+}
