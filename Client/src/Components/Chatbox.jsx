@@ -10,7 +10,7 @@ function Chatbox() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const backendLink = "http://localhost:3000";
+        const backendLink = import.meta.env.VITE_BACKEND_LINK;
         fetch(`${backendLink}/chats`)
             .then((res) => {
                 const jsonValue = res.json();
@@ -33,7 +33,7 @@ function Chatbox() {
                 setIsLoading(false);
             })
             .catch((e) => {
-                console.log("I caught an error (I am inside useEffect) ", e);
+                console.log("Sorry, fetching operation failed.", e);
             });
     }, []);
 
@@ -73,9 +73,10 @@ function Chatbox() {
             colorBG: colorBG,
         };
 
+        const backendLink = import.meta.env.VITE_BACKEND_LINK;
 
         axios
-            .post("http://localhost:3000/new", messageToSend)
+            .post(`${backendLink}/new`, messageToSend)
             .then((res) => {
                 return res.data;
             })
