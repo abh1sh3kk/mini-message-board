@@ -10,14 +10,14 @@ function Chatbox() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3000/chats")
+        const backendLink = "http://localhost:3000";
+        fetch(`${backendLink}/chats`)
             .then((res) => {
                 const jsonValue = res.json();
                 return jsonValue;
             })
             .then((data) => {
                 const updatedChats = data.map((chat) => {
-                    console.log("I am color from db", chat.colorBG);
                     const colorRandom = chat.colorBG;
                     return (
                         <Chat
@@ -73,7 +73,6 @@ function Chatbox() {
             colorBG: colorBG,
         };
 
-        console.log("The packed messageToSend is: ", messageToSend);
 
         axios
             .post("http://localhost:3000/new", messageToSend)
@@ -81,7 +80,6 @@ function Chatbox() {
                 return res.data;
             })
             .then((data) => {
-                console.log("List of messages ", data)
                 const updatedChats = data.map((chat) => {
                     return (
                         <Chat
@@ -117,9 +115,7 @@ function Chatbox() {
             <div className="chatbox__main flex-1 min-h-[300px] overflow-y-auto px-2">
                 <ChatFrame chats={chats} isLoading={isLoading} />
             </div>
-            <ChatInputs
-                handleSubmit={handleSubmit}
-            />
+            <ChatInputs handleSubmit={handleSubmit} />
         </section>
     );
 }

@@ -8,7 +8,6 @@ function ApiTest() {
             const obj = await res.json();
 
             setData(obj);
-            console.log(obj);
         })();
     }, []);
     return (

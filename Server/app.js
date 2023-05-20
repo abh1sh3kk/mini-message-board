@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // -----------------------------------------------------------------------------
 
 app.get("/", (req, res) => {
-    res.send("Welcome.");
+    res.send("Welcome.").status(200);
 });
 
 app.get("/test", (req, res) => {

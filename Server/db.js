@@ -7,7 +7,6 @@ require('dotenv').config();
 		console.log("Connection Established")
 	}
 	catch(e) {
-		console.log(`Error in connecting.`);
+		console.log(`There was error in connecting with database.`, e);
 	}
-
 })();
