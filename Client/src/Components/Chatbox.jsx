@@ -11,6 +11,7 @@ function Chatbox() {
 
     useEffect(() => {
         const backendLink = import.meta.env.VITE_BACKEND_LINK;
+        console.log(`The backend link is ${backendLink}/chats`);
         fetch(`${backendLink}/chats`)
             .then((res) => {
                 const jsonValue = res.json();
